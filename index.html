@@ -38,13 +38,13 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet.photon.js"></script>
         <script src="data/Deslizamientos_1.js"></script>
-        <script src="data/Inundaciones_2.js"></script>
+        <script src="data/Inundaciones200m_2.js"></script>
         <script src="data/TormentaElectrica_3.js"></script>
-        <script src="data/Reproyectada_4.js"></script>
+        <script src="data/PuntosBB_4.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-2.572824630293102,-80.2341283911838],[-1.9178297189139668,-79.20645168543501]]);
+        }).fitBounds([[-2.20421010812724,-79.90023835196912],[-2.1837406943888182,-79.86812345491447]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -223,10 +223,43 @@
         });
         bounds_group.addLayer(layer_Deslizamientos_1);
         map.addLayer(layer_Deslizamientos_1);
-        function pop_Inundaciones_2(feature, layer) {
+        function pop_Inundaciones200m_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['description'] !== null ? autolinker.link(String(feature.properties['description']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['timestamp'] !== null ? autolinker.link(String(feature.properties['timestamp']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(String(feature.properties['begin']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(String(feature.properties['end']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['altitudeMode'] !== null ? autolinker.link(String(feature.properties['altitudeMode']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['tessellate'] !== null ? autolinker.link(String(feature.properties['tessellate']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['extrude'] !== null ? autolinker.link(String(feature.properties['extrude']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['visibility'] !== null ? autolinker.link(String(feature.properties['visibility']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['drawOrder'] !== null ? autolinker.link(String(feature.properties['drawOrder']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['icon'] !== null ? autolinker.link(String(feature.properties['icon']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['code'] !== null ? autolinker.link(String(feature.properties['code']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -270,9 +303,6 @@
                     <tr>\
                         <td colspan="2">' + (feature.properties['statuswildfire'] !== null ? autolinker.link(String(feature.properties['statuswildfire']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['icon'] !== null ? autolinker.link(String(feature.properties['icon']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -281,42 +311,35 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Inundaciones_2_0() {
+        function style_Inundaciones200m_2_0() {
             return {
-                pane: 'pane_Inundaciones_2',
-                radius: 4.0,
+                pane: 'pane_Inundaciones200m_2',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(35,35,35,0.5)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1,
+                weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(0,127,255,1.0)',
-                interactive: false,
+                fillColor: 'rgba(13,156,195,0.5)',
+                interactive: true,
             }
         }
-        map.createPane('pane_Inundaciones_2');
-        map.getPane('pane_Inundaciones_2').style.zIndex = 402;
-        map.getPane('pane_Inundaciones_2').style['mix-blend-mode'] = 'normal';
-        var layer_Inundaciones_2 = new L.geoJson(json_Inundaciones_2, {
+        map.createPane('pane_Inundaciones200m_2');
+        map.getPane('pane_Inundaciones200m_2').style.zIndex = 402;
+        map.getPane('pane_Inundaciones200m_2').style['mix-blend-mode'] = 'normal';
+        var layer_Inundaciones200m_2 = new L.geoJson(json_Inundaciones200m_2, {
             attribution: '',
-            interactive: false,
-            dataVar: 'json_Inundaciones_2',
-            layerName: 'layer_Inundaciones_2',
-            pane: 'pane_Inundaciones_2',
-            onEachFeature: pop_Inundaciones_2,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.circleMarker(latlng, style_Inundaciones_2_0(feature));
-            },
+            interactive: true,
+            dataVar: 'json_Inundaciones200m_2',
+            layerName: 'layer_Inundaciones200m_2',
+            pane: 'pane_Inundaciones200m_2',
+            onEachFeature: pop_Inundaciones200m_2,
+            style: style_Inundaciones200m_2_0,
         });
-        bounds_group.addLayer(layer_Inundaciones_2);
-        map.addLayer(layer_Inundaciones_2);
+        bounds_group.addLayer(layer_Inundaciones200m_2);
+        map.addLayer(layer_Inundaciones200m_2);
         function pop_TormentaElectrica_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -411,14 +434,13 @@
         });
         bounds_group.addLayer(layer_TormentaElectrica_3);
         map.addLayer(layer_TormentaElectrica_3);
-        function pop_Reproyectada_4(feature, layer) {
+        function pop_PuntosBB_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>NOMBRE</strong><br />' + (feature.properties['NOMBRE'] !== null ? autolinker.link(String(feature.properties['NOMBRE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">OFICINA</th>\
-                        <td class="visible-with-data" id="OFICINA">' + (feature.properties['OFICINA'] !== null ? autolinker.link(String(feature.properties['OFICINA']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><strong>OFICINA</strong><br />' + (feature.properties['OFICINA'] !== null ? autolinker.link(String(feature.properties['OFICINA']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['OBSERVACIÓN'] !== null ? autolinker.link(String(feature.properties['OBSERVACIÓN']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -440,9 +462,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Reproyectada_4_0() {
+        function style_PuntosBB_4_0() {
             return {
-                pane: 'pane_Reproyectada_4',
+                pane: 'pane_PuntosBB_4',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,0.782)',
@@ -456,26 +478,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Reproyectada_4');
-        map.getPane('pane_Reproyectada_4').style.zIndex = 404;
-        map.getPane('pane_Reproyectada_4').style['mix-blend-mode'] = 'normal';
-        var layer_Reproyectada_4 = new L.geoJson(json_Reproyectada_4, {
+        map.createPane('pane_PuntosBB_4');
+        map.getPane('pane_PuntosBB_4').style.zIndex = 404;
+        map.getPane('pane_PuntosBB_4').style['mix-blend-mode'] = 'normal';
+        var layer_PuntosBB_4 = new L.geoJson(json_PuntosBB_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Reproyectada_4',
-            layerName: 'layer_Reproyectada_4',
-            pane: 'pane_Reproyectada_4',
-            onEachFeature: pop_Reproyectada_4,
+            dataVar: 'json_PuntosBB_4',
+            layerName: 'layer_PuntosBB_4',
+            pane: 'pane_PuntosBB_4',
+            onEachFeature: pop_PuntosBB_4,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_Reproyectada_4_0(feature));
+                return L.circleMarker(latlng, style_PuntosBB_4_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Reproyectada_4);
-        map.addLayer(layer_Reproyectada_4);
+        bounds_group.addLayer(layer_PuntosBB_4);
+        map.addLayer(layer_PuntosBB_4);
         const url = {"Nominatim OSM": "https://nominatim.openstreetmap.org/search?format=geojson&addressdetails=1&",
         "France BAN": "https://api-adresse.data.gouv.fr/search/?"}
         var photonControl = L.control.photon({
@@ -530,9 +552,9 @@
             }
         });
         var overlaysTree = [
-            {label: '<img src="legend/Reproyectada_4.png" /> Reproyectada', layer: layer_Reproyectada_4},
+            {label: '<img src="legend/PuntosBB_4.png" /> Puntos BB', layer: layer_PuntosBB_4},
             {label: '<img src="legend/TormentaElectrica_3.png" /> Tormenta Electrica', layer: layer_TormentaElectrica_3},
-            {label: '<img src="legend/Inundaciones_2.png" /> Inundaciones', layer: layer_Inundaciones_2},
+            {label: '<img src="legend/Inundaciones200m_2.png" /> Inundaciones 200m', layer: layer_Inundaciones200m_2},
             {label: '<img src="legend/Deslizamientos_1.png" /> Deslizamientos', layer: layer_Deslizamientos_1},
             {label: "Google Road", layer: layer_GoogleRoad_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
