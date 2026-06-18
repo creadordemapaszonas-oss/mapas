@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="500" viewBox="0 0 500 500">
+  <!-- Roca principal grande (Base y sombra interior) -->
+  <path d="M 120 460 L 310 160 L 410 80 L 460 110 L 500 370 L 450 460 Z" fill="#78888b" />
+  
+  <!-- Cara frontal iluminada de la roca principal -->
+  <path d="M 120 460 L 310 160 L 375 75 L 435 105 L 475 365 L 440 400 L 265 460 Z" fill="#90a4ae" />
+  
+  <!-- Faceta superior izquierda de la roca principal (Brillo) -->
+  <path d="M 310 160 L 375 75 L 435 105 L 410 80 Z" fill="#b0bec5" />
+  
+  <!-- Bloque inferior derecho (Roca acoplada en la base) -->
+  <path d="M 265 460 L 440 400 L 500 370 L 512 430 L 480 495 L 290 495 Z" fill="#78888b" />
+  <path d="M 265 460 L 440 400 L 500 370 L 450 460 L 290 495 Z" fill="#b0bec5" />
+  <path d="M 265 460 L 450 460 L 480 495 L 290 495 Z" fill="#90a4ae" />
+
+  <!-- Fragmento mediano cayendo (Izquierda inferior) -->
+  <path d="M 40 230 C 20 230, 10 250, 10 270 L 25 320 C 30 335, 50 345, 75 340 L 110 325 C 125 320, 130 300, 125 285 L 110 240 C 105 225, 90 220, 75 225 Z" fill="#78888b" />
+  <path d="M 40 230 C 25 230, 15 245, 15 265 L 25 315 C 30 325, 45 330, 65 325 L 105 270 L 75 225 Z" fill="#b0bec5" />
+  <path d="M 65 325 L 105 270 L 110 240 C 105 225, 90 220, 75 225 L 105 270 L 110 325 C 125 320, 130 300, 125 285 Z" fill="#90a4ae" />
+
+  <!-- Fragmento mediano superior (Centro izquierda) -->
+  <path d="M 140 180 L 125 210 L 140 245 L 175 245 L 195 215 L 180 185 Z" fill="#78888b" />
+  <path d="M 140 180 L 125 210 L 140 245 L 165 210 Z" fill="#b0bec5" />
+  <path d="M 165 210 L 140 245 L 175 245 L 195 215 L 180 185 Z" fill="#90a4ae" />
+
+  <!-- Pequeña piedra flotando (Arriba en el centro) -->
+  <path d="M 155 110 L 145 135 L 165 155 L 185 140 L 180 115 Z" fill="#78888b" />
+  <path d="M 155 110 L 145 135 L 165 155 L 165 130 Z" fill="#b0bec5" />
+  <path d="M 165 130 L 165 155 L 185 140 L 180 115 Z" fill="#90a4ae" />
+
+  <!-- Piedra diminuta superior alta -->
+  <path d="M 225 55 L 215 70 L 225 85 L 240 80 L 240 60 Z" fill="#90a4ae" />
+</svg>
